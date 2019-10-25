@@ -139,4 +139,9 @@ class Book
 
         return $this;
     }
+
+    public function __Tostring()
+    {
+        return $this->title;
+    }
 }

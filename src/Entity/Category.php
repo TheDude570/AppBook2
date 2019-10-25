@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+// use App\Entity\Category;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -96,5 +97,10 @@ class Category
         }
 
         return $this;
+    }
+
+    public function __Tostring()
+    {
+        return $this->title;
     }
 }

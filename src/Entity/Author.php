@@ -131,4 +131,10 @@ class Author
 
         return $this;
     }
+
+    public function __Tostring()
+    {
+        return $this->lastName;
+        return $this->firstName;
+    }
 }

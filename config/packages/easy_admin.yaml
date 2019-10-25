@@ -1,0 +1,20 @@
+easy_admin:
+  site_name: 'Admin AppBook'
+  entities:
+    Category:
+      class: App\Entity\Category
+      label: 'Categories'
+      list:
+        title: "Nos categories"
+        action:
+          { name: 'edit', icon: 'pencil', label: 'false', css_class: 'btn btn-primary'}
+    Author:
+      class: App\Entity\Author
+      label: 'Auteur'
+      list:
+        title: "Most recent customers"
+    Book:
+      class: App\Entity\Book
+      label: 'Livres'
+      list:
+        title: "Most recent customers"
