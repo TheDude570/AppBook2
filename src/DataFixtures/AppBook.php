@@ -46,9 +46,9 @@ class AppBook extends Fixture
 
                     $book = new Book();
 
-                    $book->setTitle($faker->sentence())
-                        ->setImage($faker->imageUrl())
-                        ->setShortDescription($faker->paragraph(3))
+                    $book->setTitle($faker->sentence(3))
+                        ->setImage($faker->imageUrl($height = 150, $weight = 100))
+                        ->setShortDescription($faker->paragraph(1))
                         ->setLongDescription($faker->paragraph(6))
                         ->setIsbn10($faker->isbn10())
                         ->setIsbn13($faker->isbn13())
