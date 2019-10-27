@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
@@ -18,6 +20,12 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $title;
 
@@ -28,21 +36,36 @@ class Book
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *      min = 50,
+     *      max = 250,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $shortDescription;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *      min = 250,
+     *      max = 1000,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $longDescription;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Isbn(type = "isbn10",message = "This value is not  valid.")
      */
     private $isbn10;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Isbn(type = "isbn13",message = "This value is not  valid.")
+     * 
      */
     private $isbn13;
 
@@ -55,6 +78,16 @@ class Book
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="books")
+     */
+    private $category;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
 
     public function getId(): ?int
     {
@@ -158,6 +191,30 @@ class Book
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }

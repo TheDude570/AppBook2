@@ -3,22 +3,51 @@ easy_admin:
   design:
     menu:
         - { entity: 'Author', icon: 'user' }
-        - { entity: 'Category', label: 'Tags', icon: 'tag' }
+        - { entity: 'Category', label: 'Categories', icon: 'tag' }
+        - { entity: 'User', label: 'Utilisateur', icon: 'user-edit' }
+        - { entity: 'Loan', label: 'Emprunt', icon: 'tag' }
+        - { entity: 'Book', label: 'Livre', icon: 'book' }
   entities:
     Category:
       class: App\Entity\Category
       label: 'Categories'
       list:
         title: "Nos categories"
-        action: 
+        actions: 
             - { name: 'edit', icon: 'pencil', label: 'false', css_class: 'btn btn-primary'}
     Author:
       class: App\Entity\Author
       label: 'Auteur'
       list:
-        title: "Most recent customers"
+        title: "Auteur"
     Book:
       class: App\Entity\Book
       label: 'Livres'
       list:
-        title: "Most recent customers"
+        actions:
+            - { name: 'edit', icon: 'pencil', label: false, title: 'Modifier', css_class: 'btn btn-primary btn-sm' }
+            - { name: 'delete', icon: 'trash', label: false, title: 'Supprimer', css_class: 'btn btn-primary btn-sm' }
+            - { name: 'new', icon: 'trash', label: false, title: 'Modifier', css_class: 'btn btn-primary btn-sm' }
+        title: "Livres"
+        fields: [
+          { property: 'id', label: 'ID' }
+          { property: 'title', label: 'Titre' }
+          { property: 'image', label: 'Image' }
+          { property: 'shortDescription', label: 'Description courte' }
+          { property: 'longDescription', label: 'Description longue' }
+          { property: 'isbn10', label: 'ISBN10' }
+          { property: 'isbn13', label: 'ISBN13' }
+          { property: 'stock', label: 'Stock' }
+          { property: 'category', label: 'Stock' }
+          { property: 'author', label: 'Stock' }
+          ]
+    User:
+      class: App\Entity\User
+      label: 'Utilisateur'
+      list:
+        title: "Utilisateur"
+    Loan:
+      class: App\Entity\Loan
+      label: 'Emprunt'
+      list:
+        title: "Emprunt"

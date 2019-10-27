@@ -52,8 +52,10 @@ class AppBook extends Fixture
                         ->setLongDescription($faker->paragraph(6))
                         ->setIsbn10($faker->isbn10())
                         ->setIsbn13($faker->isbn13())
+                        ->setStock(rand(0,2))
                         ->setCreatedAt(new \DateTime())
-                        ->setAuthor($auteur);
+                        ->setAuthor($auteur)
+                        ->setCategory($category);
 
                     $manager->persist($book);
                 }
