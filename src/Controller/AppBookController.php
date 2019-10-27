@@ -32,7 +32,7 @@ class AppBookController extends AbstractController
     }
 
     /**
-     * @Route("/book/{id}", name="showbook")
+     * @Route("/book/{id}", name="show")
      */
     function showbook($id)
     {

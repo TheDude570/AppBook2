@@ -22,7 +22,7 @@
                             </footer>
                         </blockquote>
                         <hr>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="{{ path('show', {'id': book.id })}}" class="btn btn-primary">Go somewhere</a>
                     </div>
                     <div class="card-footer text-muted">
                         <p class="small">{{ book.isbn10 }}</p>
