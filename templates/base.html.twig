@@ -19,16 +19,21 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/home">
+                            <a class="nav-link" href="/">
                                 <i class="fa fa-home" aria-hidden="true"></i>
                                 Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/books">
+                            <a class="nav-link" href="{{ path('books')}}">
                                 <i class="fa fa-book" aria-hidden="true"></i>
                                 Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('create_book')}}">
+                                <i class="fa fa-book" aria-hidden="true"></i>
+                                New Book</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
@@ -57,7 +62,7 @@
 
                 {% block body %}{% endblock %}
             </main>
-            <footer class="fixed-bottom bg-dark page-footer font-small blue">
+            <footer class="bg-dark page-footer font-small blue mt-4">
                 <div class="footer-copyright text-center py-3">© 2018 Copyright:
                     <a href="https://mdbootstrap.com/education/bootstrap/">
                         MDBootstrap.com</a>

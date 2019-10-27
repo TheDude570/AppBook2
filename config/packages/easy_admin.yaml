@@ -1,13 +1,17 @@
 easy_admin:
   site_name: 'Admin AppBook'
+  design:
+    menu:
+        - { entity: 'Author', icon: 'user' }
+        - { entity: 'Category', label: 'Tags', icon: 'tag' }
   entities:
     Category:
       class: App\Entity\Category
       label: 'Categories'
       list:
         title: "Nos categories"
-        action:
-          { name: 'edit', icon: 'pencil', label: 'false', css_class: 'btn btn-primary'}
+        action: 
+            - { name: 'edit', icon: 'pencil', label: 'false', css_class: 'btn btn-primary'}
     Author:
       class: App\Entity\Author
       label: 'Auteur'

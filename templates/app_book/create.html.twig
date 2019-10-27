@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Création de nouveau livre
+{% endblock %}
+
+{% block body %}
+    <h1>Création de livre</h1>
+    {{form_start(form, { 'attr': {'class': 'col-12 col-md-6 mx-auto border'} })}}
+
+    {{form_row(form.title, {'attr': {'placeholder': "Entrer un titre"},'label': "Titre"}) }}
+    {{form_row(form.image, {'attr': {'placeholder': "Entrer l'adresse de la couverture", 'class': "bg-dark"},'label': "Image"}) }}
+    {{form_row(form.shortDescription, {'attr': {'placeholder': "Entrer une description", 'class': "bg-dark"},'label': "Description courte"}) }}
+    {{form_row(form.longDescription, {'attr': {'placeholder': "Entrer une description", 'class': "bg-dark"},'label': "Longue description"}) }}
+    {{form_row(form.isbn10, {'attr': {'placeholder': "Entrer une description", 'class': "col-12 col-md-5"},'label': "ISBN10"}) }}
+    {{form_row(form.isbn13, {'attr': {'placeholder': "Entrer une description", 'class': "col-12 col-md-5"},'label': "ISBN13"}) }}
+    
+    <button type="submit" class="btn btn-primary">
+    {% if editMode %}
+        Enregistrer
+    {% else %}
+        Ajouter l'article
+    {% endif %}
+    
+    Enregistrer</button>
+
+    {{form_end(form)}}
+{% endblock %}
+
